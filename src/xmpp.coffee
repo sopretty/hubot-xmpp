@@ -76,13 +76,13 @@ class XmppBot extends Adapter
       host: options.host
       port: options.port
       legacySSL: options.legacySSL
-      preferred: options.preferredSaslMechanism
+      preferredSaslMechanism: options.preferredSaslMechanism
       disallowTLS: options.disallowTLS
     @configClient(options)
 
   configClient: (options) ->
     @client.connection.socket.setTimeout 0
-    setInterval(@ping, options.keepaliveInterval)
+    #setInterval(@ping, options.keepaliveInterval)
 
     @client.on 'error', @.error
     @client.on 'online', @.online
